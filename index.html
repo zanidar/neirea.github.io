@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta name="ppck-ver" content="e0ce452027021f0e6449df99d7b6d1fc" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Blog Moderno</title>
+  <title>TechNews Hoy - Noticias de Tecnología</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,8 +13,9 @@
     :root {
       --bg: #ffffff;
       --text: #222222;
-      --card: #f5f5f5;
-      --accent: #4f46e5;
+      --card: #f4f4f4;
+      --accent: #111827;
+      --tag: #4f46e5;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -21,6 +23,7 @@
         --bg: #0e0e0e;
         --text: #eeeeee;
         --card: #1a1a1a;
+        --accent: #000000;
       }
     }
 
@@ -30,64 +33,109 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding-bottom: 40px;
     }
 
+    /* ENCABEZADO ESTILO NOTICIAS */
     header {
       background: var(--accent);
       color: white;
-      padding: 40px 20px;
+      padding: 25px 20px;
+      border-bottom: 4px solid var(--tag);
       text-align: center;
-      border-radius: 0 0 20px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin-top: 10px;
-      opacity: 0.9;
+      margin: 8px 0 0;
+      opacity: 0.85;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    /* Barra de categorías estilo portal tech */
+    .nav-cats {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 15px 20px;
+      background: var(--card);
+      border-bottom: 1px solid #ccc3;
+    }
+
+    .nav-cats a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .nav-cats a:hover {
+      color: var(--tag);
+      opacity: 1;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 30px auto;
       padding: 0 20px;
     }
 
+    /* TARJETAS DE NOTICIA MÁS PERIODÍSTICAS */
     .card {
       background: var(--card);
       padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: 0.2s ease;
+      border-left: 5px solid var(--tag);
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       cursor: pointer;
     }
 
+    .tag {
+      display: inline-block;
+      background: var(--tag);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
     .card h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
     }
 
     .card img {
       width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
+      border-radius: 8px;
+      margin-top: 5px;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
+      padding: 20px;
+      margin-top: 30px;
       opacity: 0.7;
       font-size: 0.9rem;
+      border-top: 1px solid #ccc3;
     }
   </style>
 </head>
@@ -95,39 +143,53 @@
 <body>
 
   <header>
-    <h1>Mi Blog Moderno</h1>
-    <p>Un espacio para compartir ideas, artículos y proyectos.</p>
+    <h1>TechNews Hoy</h1>
+    <p>Últimas noticias, lanzamientos y novedades del mundo tecnológico.</p>
   </header>
+
+  <!-- Categorías estilo periódico -->
+  <nav class="nav-cats">
+    <a href="#">IA</a>
+    <a href="#">Smartphones</a>
+    <a href="#">Ciberseguridad</a>
+    <a href="#">Startups</a>
+    <a href="#">Electrónica</a>
+    <a href="#">Tendencias</a>
+  </nav>
 
   <div class="container">
 
-    <!-- Artículo 1 -->
+    <!-- Noticia 1 -->
     <div class="card" onclick="location.href='articulo1.html'">
-      <h2>Primer artículo</h2>
-      <p>Una breve introducción al contenido más reciente del blog.</p>
-      <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200" alt="Imagen artículo">
+      <span class="tag">Innovación</span>
+      <h2>La nueva ola de IA redefine cómo interactuamos con la tecnología</h2>
+      <p>Expertos aseguran que la inteligencia artificial está entrando en una fase de desarrollo acelerado sin precedentes.</p>
+      <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200" alt="Noticia tecnológica">
     </div>
 
-    <!-- Artículo 2 -->
+    <!-- Noticia 2 -->
     <div class="card" onclick="location.href='articulo2.html'">
-      <h2>Segundo artículo</h2>
-      <p>Otro ejemplo de publicación moderna, clara y atractiva.</p>
-      <img src="https://images.unsplash.com/photo-1522199794611-8e3563aee967?w=1200" alt="Imagen artículo">
+      <span class="tag">Hardware</span>
+      <h2>Este nuevo procesador promete romper récords de rendimiento</h2>
+      <p>Fabricantes revelan cifras que podrían cambiar el panorama de la computación moderna.</p>
+      <img src="https://images.unsplash.com/photo-1522199794611-8e3563aee967?w=1200" alt="Noticia hardware">
     </div>
 
-    <!-- Artículo 3 -->
+    <!-- Noticia 3 -->
     <div class="card" onclick="location.href='articulo3.html'">
-      <h2>Tercer artículo</h2>
-      <p>Un texto adicional para que el diseño se vea completo.</p>
-      <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=1200" alt="Imagen artículo">
+      <span class="tag">Tendencias</span>
+      <h2>Por qué el 2025 será un año clave para el desarrollo tecnológico</h2>
+      <p>Analistas explican qué sectores experimentarán mayor crecimiento este año.</p>
+      <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=1200" alt="Noticia tendencia">
     </div>
 
   </div>
 
   <footer>
-    © 2025 - Mi Blog Moderno
+    © 2025 - TechNews Hoy | Noticias de Tecnología
   </footer>
 
 </body>
 </html>
+
 
