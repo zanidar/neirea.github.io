@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  
+  <meta charset="UTF-8">
   <title>TechNews Hoy - Noticias de Tecnología</title>
 
   <!-- Google Font -->
@@ -33,7 +33,6 @@
       line-height: 1.6;
     }
 
-    /* ENCABEZADO ESTILO NOTICIAS */
     header {
       background: var(--accent);
       color: white;
@@ -57,7 +56,6 @@
       font-weight: 300;
     }
 
-    /* Barra de categorías estilo portal tech */
     .nav-cats {
       display: flex;
       gap: 20px;
@@ -86,7 +84,13 @@
       padding: 0 20px;
     }
 
-    /* TARJETAS DE NOTICIA MÁS PERIODÍSTICAS */
+    /* LINK QUE ENVUELVE LA TARJETA */
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
     .card {
       background: var(--card);
       padding: 20px;
@@ -102,7 +106,6 @@
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      cursor: pointer;
     }
 
     .tag {
@@ -140,18 +143,11 @@
 
 <body>
 
-  <!-- ANUNCIO ARRIBA DEL TODO -->
-  <div id="frame" style="width: 320px;margin: 15px auto;z-index: 99998;height: auto">
-    <iframe data-aa='2420055' src='//ad.a-ads.com/2420055/?size=320x100'
-      style='border:0; padding:0; width:320px; height:100px; overflow:hidden;display: block;margin: auto'></iframe>
-  </div>
-
   <header>
     <h1>TechNews Hoy</h1>
     <p>Últimas noticias, lanzamientos y novedades del mundo tecnológico.</p>
   </header>
 
-  <!-- Categorías estilo periódico -->
   <nav class="nav-cats">
     <a href="#">IA</a>
     <a href="#">Smartphones</a>
@@ -164,28 +160,34 @@
   <div class="container">
 
     <!-- Noticia 1 -->
-    <div class="card" onclick="location.href='articulo1.html'">
-      <span class="tag">Innovación</span>
-      <h2>La nueva ola de IA redefine cómo interactuamos con la tecnología</h2>
-      <p>Expertos aseguran que la inteligencia artificial está entrando en una fase de desarrollo acelerado sin precedentes.</p>
-      <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200" alt="Noticia tecnológica">
-    </div>
+    <a href="articulo1.html" class="card-link">
+      <div class="card">
+        <span class="tag">Innovación</span>
+        <h2>La nueva ola de IA redefine cómo interactuamos con la tecnología</h2>
+        <p>Expertos aseguran que la inteligencia artificial está entrando en una fase de desarrollo acelerado sin precedentes.</p>
+        <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200">
+      </div>
+    </a>
 
     <!-- Noticia 2 -->
-    <div class="card" onclick="location.href='articulo2.html'">
-      <span class="tag">Hardware</span>
-      <h2>Este nuevo procesador promete romper récords de rendimiento</h2>
-      <p>Fabricantes revelan cifras que podrían cambiar el panorama de la computación moderna.</p>
-      <img src="https://images.unsplash.com/photo-1522199794611-8e3563aee967?w=1200" alt="Noticia hardware">
-    </div>
+    <a href="articulo2.html" class="card-link">
+      <div class="card">
+        <span class="tag">Hardware</span>
+        <h2>Este nuevo procesador promete romper récords de rendimiento</h2>
+        <p>Fabricantes revelan cifras que podrían cambiar el panorama de la computación moderna.</p>
+        <img src="https://images.unsplash.com/photo-1522199794611-8e3563aee967?w=1200">
+      </div>
+    </a>
 
     <!-- Noticia 3 -->
-    <div class="card" onclick="location.href='articulo3.html'">
-      <span class="tag">Tendencias</span>
-      <h2>Por qué el 2025 será un año clave para el desarrollo tecnológico</h2>
-      <p>Analistas explican qué sectores experimentarán mayor crecimiento este año.</p>
-      <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=1200" alt="Noticia tendencia">
-    </div>
+    <a href="articulo3.html" class="card-link">
+      <div class="card">
+        <span class="tag">Tendencias</span>
+        <h2>Por qué el 2025 será un año clave para el desarrollo tecnológico</h2>
+        <p>Analistas explican qué sectores experimentarán mayor crecimiento este año.</p>
+        <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=1200">
+      </div>
+    </a>
 
   </div>
 
