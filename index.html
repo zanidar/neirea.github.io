@@ -1,202 +1,42 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>TechNews Hoy - Noticias de Tecnología</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #222222;
-      --card: #f4f4f4;
-      --accent: #111827;
-      --tag: #4f46e5;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0e0e0e;
-        --text: #eeeeee;
-        --card: #1a1a1a;
-        --accent: #000000;
-      }
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      background: var(--accent);
-      color: white;
-      padding: 25px 20px;
-      border-bottom: 4px solid var(--tag);
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin: 8px 0 0;
-      opacity: 0.85;
-      font-size: 1rem;
-      font-weight: 300;
-    }
-
-    .nav-cats {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 15px 20px;
-      background: var(--card);
-      border-bottom: 1px solid #ccc3;
-    }
-
-    .nav-cats a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      opacity: 0.85;
-      white-space: nowrap;
-    }
-
-    .nav-cats a:hover {
-      color: var(--tag);
-      opacity: 1;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    /* LINK QUE ENVUELVE LA TARJETA */
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: 0.2s ease;
-      border-left: 5px solid var(--tag);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--tag);
-      color: white;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    .card h2 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-top: 5px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-      opacity: 0.7;
-      font-size: 0.9rem;
-      border-top: 1px solid #ccc3;
-    }
-  </style>
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>TechNews Hoy</h1>
-    <p>Últimas noticias, lanzamientos y novedades del mundo tecnológico.</p>
-  </header>
+<header>
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</header>
 
-  <nav class="nav-cats">
-    <a href="#">IA</a>
-    <a href="#">Smartphones</a>
-    <a href="#">Ciberseguridad</a>
-    <a href="#">Startups</a>
-    <a href="#">Electrónica</a>
-    <a href="#">Tendencias</a>
-  </nav>
+<div class="container">
 
-  <div class="container">
-
-    <!-- Noticia 1 -->
-    <a href="articulo1.html" class="card-link">
+  {% for post in site.posts limit:5 %}
+    <a href="{{ post.url }}" class="card-link">
       <div class="card">
-        <span class="tag">Innovación</span>
-        <h2>La nueva ola de IA redefine cómo interactuamos con la tecnología</h2>
-        <p>Expertos aseguran que la inteligencia artificial está entrando en una fase de desarrollo acelerado sin precedentes.</p>
-        <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200">
+        <span class="tag">{{ post.category }}</span>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.excerpt }}</p>
+        <img src="{{ post.image }}">
       </div>
     </a>
+  {% endfor %}
 
-    <!-- Noticia 2 -->
-    <a href="articulo2.html" class="card-link">
-      <div class="card">
-        <span class="tag">Hardware</span>
-        <h2>Este nuevo procesador promete romper récords de rendimiento</h2>
-        <p>Fabricantes revelan cifras que podrían cambiar el panorama de la computación moderna.</p>
-        <img src="https://images.unsplash.com/photo-1522199794611-8e3563aee967?w=1200">
-      </div>
-    </a>
+</div>
 
-    <!-- Noticia 3 -->
-    <a href="articulo3.html" class="card-link">
-      <div class="card">
-        <span class="tag">Tendencias</span>
-        <h2>Por qué el 2025 será un año clave para el desarrollo tecnológico</h2>
-        <p>Analistas explican qué sectores experimentarán mayor crecimiento este año.</p>
-        <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=1200">
-      </div>
-    </a>
-
-  </div>
-
-  <footer>
-    © 2025 - TechNews Hoy | Noticias de Tecnología
-  </footer>
+<footer>
+  © {{ "now" | date: "%Y" }} - TechNews Hoy
+</footer>
 
 </body>
 </html>
-
 
 
