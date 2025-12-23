@@ -2,57 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Básico -->
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta name="author" content="{{ site.author | default: 'TechNews Hoy' }}">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-
-  <!-- Open Graph (Facebook, LinkedIn) -->
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:image" content="{{ page.image | default: '/assets/images/default-og.jpg' | absolute_url }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{{ site.title }}">
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta name="twitter:image" content="{{ page.image | default: '/assets/images/default-og.jpg' | absolute_url }}">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
 
+<div id="frame" style="width: 320px;margin: auto;z-index: 99998;height: auto">
+          <iframe data-aa='2420055' src='//ad.a-ads.com/2420055/?size=320x100'
+                            style='border:0; padding:0; width:320px; height:100px; overflow:hidden;display: block;margin: auto'></iframe>
+</div>
 <header>
   <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
 </header>
 
-<!-- 📢 Anuncio -->
-<div id="frame" style="width: 320px; margin: auto; z-index: 99998; height: auto;">
-  <iframe data-aa='2420055' src='//ad.a-ads.com/2420055/?size=320x100'
-          style='border:0; padding:0; width:320px; height:100px; overflow:hidden; display: block; margin: auto;'>
-  </iframe>
-</div>
+<div class="container">
 
-<main class="container">
+  <span class="tag">{{ page.category }}</span>
+  <h1>{{ page.title }}</h1>
+
+  <p class="meta">
+    {{ page.date | date: "%d %B %Y" }}
+  </p>
+
+  <img src="{{ page.image }}">
+
   {{ content }}
-</main>
 
-<footer>
-  <p>© {{ "now" | date: "%Y" }} - TechNews Hoy</p>
-</footer>
+  <a href="/" class="back">← Volver</a>
+
+</div>
 
 </body>
 </html>
