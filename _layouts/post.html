@@ -3,22 +3,25 @@ layout: default
 ---
 
 <article class="container">
-  {% if page.category %}
-    <span class="tag">{{ page.category }}</span>
-  {% endif %}
-
-  <h1 class="post-title">{{ page.title }}</h1>
-
-  <p class="meta">Publicado el {{ page.date | date: "%d de %B, %Y" }}</p>
+  <div style="text-align: center;">
+    {% if page.category %}
+      <span class="tag">{{ page.category }}</span>
+    {% endif %}
+    
+    <h1 class="post-title">{{ page.title }}</h1>
+    
+    <div class="meta">
+      {{ page.date | date: "%d de %B, %Y" }} • 5 min de lectura
+    </div>
+  </div>
 
   {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="main-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="featured-image">
   {% endif %}
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  <hr>
-  <a href="{{ '/' | relative_url }}">← Volver al inicio</a>
+  <a href="/" class="back-link">← Volver a TechNews</a>
 </article>
