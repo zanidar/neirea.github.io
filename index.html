@@ -1,43 +1,53 @@
 ---
 layout: default
+title: Noticias de Tecnología e Innovación
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ site.title }}</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-
-<header>
-  <h1>{{ site.title }}</h1>
-  <p>{{ site.description }}</p>
-</header>
-
-<div class="container">
-
+<section class="posts-grid">
   {% for post in site.posts limit:5 %}
-    <a href="{{ post.url }}" class="card-link">
-      <div class="card">
-        <span class="tag">{{ post.category }}</span>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.excerpt }}</p>
-        <img src="{{ post.image }}">
+    <article class="card">
+      <header>
+        {% if post.category %}
+          <span class="tag">{{ post.category }}</span>
+        {% endif %}
+        <h2>
+          <a href="{{ post.url | relative_url }}" title="Leer más sobre {{ post.title }}">
+            {{ post.title }}
+          </a>
+        </h2>
+      </header>
+
+      {% if post.image %}
+        <div class="card-image">
+          <img src="{{ post.image | relative_url }}" 
+               alt="{{ post.title }}" 
+               loading="lazy" 
+               width="400" 
+               height="250">
+        </div>
+      {% endif %}
+
+      <div class="card-excerpt">
+        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
       </div>
-    </a>
+
+      <footer>
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d de %B, %Y" }}
+        </time>
+      </footer>
+    </article>
   {% endfor %}
+</section>
 
-</div>
-
-<footer>
-  © {{ "now" | date: "%Y" }} - TechNews Hoy
-</footer>
-
-</body>
-</html>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{ site.title }}",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}"
+}
+</script>
 
 
