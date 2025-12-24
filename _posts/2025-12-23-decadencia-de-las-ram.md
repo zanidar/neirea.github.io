@@ -2,7 +2,7 @@
 layout: post
 title: "crisis de la memoria ram"
 excerpt: "Expertos aseguran que no habra ram para nadie."
-image: https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200
+image: https://unsplash.com/es/fotos/fotografia-de-primer-plano-de-la-placa-de-circuito-verde-ING1Uf1Fc30?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
 category: Innovación
 ---
 
